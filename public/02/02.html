@@ -9,20 +9,29 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous" defer></script>
     <script src="../main.js" defer></script>
-    <script src=".js" defer></script>
+    <script src="02.js" defer></script>
     <title>CSS Sample</title>
 </head>
 <style>
+    .box {
+        background: brown;
+    }
 </style>
 
 <body>
     <div class="main">
-        <h1 class="heading"></h1>
+        <h1 class="heading">複数のborder</h1>
+        <div class="content-min box border-double">
+        </div>
         <div id="css" class="css">
             <textarea id="css-text" class="css-text" readonly></textarea>
             <div class="copy-button" data-target-id="css-text">COPY</div>
         </div>
         <div class="description">
+            borderを2本引きたいときにoutlineオプションを活用します。
+            outlineはborderの外側に引かれますが、
+            outline-offsetに負の値を指定すると内側に線を引くことができます。
+            注意点として、現状はborder-radiusオプションはoutlineには適用されません。
         </div>
     </div>
 </body>
