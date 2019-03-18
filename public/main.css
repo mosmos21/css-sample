@@ -28,10 +28,11 @@ body {
     width: 400px;
     height: 300px;
     margin: 20px auto;
+    border: 1px solid black;
 }
 
 .css {
-    width: 400px;
+    width: 500px;
     padding: 10px;
     margin: 20px auto;
     position: relative;
@@ -92,4 +93,18 @@ body {
     color: black;
     right: 50px;
     top: 5px;
+}
+
+.back-button {
+    background: gray;
+    color: white;
+    display: block;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 1px;
+    line-height: 40px;
+    margin: 20px auto;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
 }
