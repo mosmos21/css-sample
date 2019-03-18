@@ -94,3 +94,17 @@ body {
     right: 50px;
     top: 5px;
 }
+
+.back-button {
+    background: gray;
+    color: white;
+    display: block;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 1px;
+    line-height: 40px;
+    margin: 20px auto;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+}
