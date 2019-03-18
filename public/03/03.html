@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous" defer></script>
+    <script src="../main.js" defer></script>
+    <script src="03.js" defer></script>
+    <title>CSS Sample</title>
+</head>
+<style>
+    .box {
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <h1 class="heading">背景画像の位置指定</h1>
+        <div class="content-min box bg-position1">
+            paddingに合わせてpositionを指定しています
+        </div>
+        <div id="css" class="css">
+            <textarea id="css-text1" class="css-text" readonly></textarea>
+            <div id="copy-button1" class="copy-button" data-target-id="css-text1">COPY</div>
+        </div>
+        <div class="content-min box bg-position1">
+            background-positionの基点を変更しています
+        </div>
+        <div id="css" class="css">
+            <textarea id="css-text2" class="css-text" readonly></textarea>
+            <div id="copy-button2" class="copy-button" data-target-id="css-text2">COPY</div>
+        </div>
+        <div class="description">
+            CSS3から背景画像のpositionを指定しやすくなっています。ここでは2つの方法で背景画像の位置を指定しています。
+            1つめの例はpaddingとbackground-positionプロパティを組み合わせて位置を指定する方法。
+            これでもいいですが問題が2つあります。
+            <ol>
+                <li>background-positionオプションのpx指定の書き方にブラウザが対応指定な場合にずれる</li>
+                <li>paddingを変更するときは3箇所の数値を変更しなければならない。</li>
+            </ol>
+            この問題に対応するために2つめの書き方をします。
+            この例ではbackground-originを指定してpositionの基点を変更しています。
+            このオプションの初期値はpadding-boxになっていますが、content-boxを指定することで、
+            paddingを含まない四角形の中での座標を指定することができます。
+        </div>
+    </div>
+</body>
+
+</html>

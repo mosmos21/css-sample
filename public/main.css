@@ -28,10 +28,11 @@ body {
     width: 400px;
     height: 300px;
     margin: 20px auto;
+    border: 1px solid black;
 }
 
 .css {
-    width: 400px;
+    width: 500px;
     padding: 10px;
     margin: 20px auto;
     position: relative;
