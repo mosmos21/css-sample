@@ -2,8 +2,10 @@ const applyCss = (className, styles, target = '#css-text') => {
   const stylesText = Object.keys(styles)
     .map(key => `  ${key}: ${styles[key]};`)
     .join('\n')
-  const text = `${className} {\n${stylesText}\n}`
-  const height = (Object.keys(styles).length + 2) * 1.5
+  const text = [$(target).text(), `${className} {\n${stylesText}\n}`]
+    .filter(v => v)
+    .join('\n')
+  const height = text.split('\n').length * 1.5
   $(target)
     .text(text)
     .css('height', height + 'em')
