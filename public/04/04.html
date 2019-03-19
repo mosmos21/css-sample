@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous" defer></script>
+    <script src="../main.js" defer></script>
+    <script src="04.js" defer></script>
+    <title>CSS Sample</title>
+</head>
+<style>
+    .inner-radius1>div {
+        height: 100%;
+    }
+
+    .inner-radius2 {
+        padding: 1em;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <h1 class="heading">内側の角丸</h1>
+        <div class="content-min inner-radius1">
+            <div>divを2つ使う方法</div>
+        </div>
+        <div id="css" class="css">
+            <textarea id="css-text1" class="css-text" readonly></textarea>
+            <div id="copy-button1" class="copy-button" data-target-id="css-text1">COPY</div>
+        </div>
+        <div class="content-min inner-radius2">
+            divを1つ使う方法
+        </div>
+        <div id="css" class="css">
+            <textarea id="css-text2" class="css-text" readonly></textarea>
+            <div id="copy-button2" class="copy-button" data-target-id="css-text2">COPY</div>
+        </div>
+        <div class="description">
+            ボックスの内側に角丸を適用する方法です。1つめの方法はdivを2重にして内側に角丸を適用する方法です。
+            この方法は簡単ですが、一つのボックスを表現するので2つのタグが必要になってしまいイマイチです。
+            単純なボーダーの場合は2つめの方法を使うことで一つのタグだけで表現することができます。
+            こちらはoutlineにborder-radiusオプションが適用されないことを活用しています。
+            ただし、こちらの方法を使うためにはある程度のoutlineの太さが必要なので注意が必要です。
+        </div>
+    </div>
+    <a href="/" class="back-button">一覧に戻る</a>
+</body>
+
+</html>
