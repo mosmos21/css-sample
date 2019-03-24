@@ -22,6 +22,7 @@ gulp.task('ejs', () => {
     )
     .pipe(rename({ extname: '.html' }))
     .pipe(gulp.dest('_build'))
+    .pipe(browserSync.stream())
 })
 
 gulp.task('sass', () => {
@@ -32,12 +33,14 @@ gulp.task('sass', () => {
     .pipe(cleanCss())
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('_build'))
+    .pipe(browserSync.stream())
 })
 
 gulp.task('copy', () => {
   return gulp
     .src(['assets/images/**/*', 'assets/scripts/**/*'], { base: 'assets' })
     .pipe(gulp.dest('_build'))
+    .pipe(browserSync.stream())
 })
 
 gulp.task('browser-sync', () => {
@@ -47,12 +50,6 @@ gulp.task('browser-sync', () => {
       index: 'index.html'
     }
   })
-})
-
-gulp.task('bs-reload', done => {
-  cache.clearAll()
-  browserSync.reload()
-  done()
 })
 
 gulp.task('default', gulp.parallel('ejs', 'sass', 'copy'))
@@ -68,7 +65,6 @@ gulp.task(
         ['assets/images/**/*', 'assets/scripts/**/*'],
         gulp.task('copy')
       )
-      gulp.watch(['_build/**/*'], gulp.task('bs-reload'))
     })
   )
 )
