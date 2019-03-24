@@ -39,7 +39,7 @@ gulp.task('browser-sync', () => {
   })
 })
 
-gulp.task('bs-reload', () => {
+gulp.task('bs-reload', done => {
   browserSync.reload()
   done()
 })
