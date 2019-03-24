@@ -48,23 +48,26 @@ gulp.task('default', gulp.parallel('ejs', 'sass', 'copy'))
 
 gulp.task(
   'watch',
-  gulp.parallel('browser-sync', () => {
-    gulp.watch(
-      ['views/*.ejs', 'views/**/*.ejs', 'resource.json'],
-      gulp.task('ejs')
-    )
-    gulp.watch(
-      ['assets/stylesheets/*', 'assets/stylesheets/**/*'],
-      gulp.task('sass')
-    )
-    gulp.watch(
-      [
-        'assets/images/*, assets/images/**/*',
-        'assets/scripts/*',
-        'assets/scripts/**/*'
-      ],
-      gulp.task('copy')
-    )
-    gulp.watch(['_build/*', '_build/**/*'], gulp.task('bs-reload'))
-  })
+  gulp.series(
+    'default',
+    gulp.parallel('browser-sync', () => {
+      gulp.watch(
+        ['views/*.ejs', 'views/**/*.ejs', 'resource.json'],
+        gulp.task('ejs')
+      )
+      gulp.watch(
+        ['assets/stylesheets/*', 'assets/stylesheets/**/*'],
+        gulp.task('sass')
+      )
+      gulp.watch(
+        [
+          'assets/images/*, assets/images/**/*',
+          'assets/scripts/*',
+          'assets/scripts/**/*'
+        ],
+        gulp.task('copy')
+      )
+      gulp.watch(['_build/*', '_build/**/*'], gulp.task('bs-reload'))
+    })
+  )
 )
