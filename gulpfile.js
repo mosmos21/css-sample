@@ -8,6 +8,7 @@ const sass = require('gulp-sass')
 const sassGlob = require('gulp-sass-glob')
 const cleanCss = require('gulp-clean-css')
 const browserSync = require('browser-sync')
+const cache = require('gulp-cache')
 
 gulp.task('ejs', () => {
   const json = JSON.parse(fs.readFileSync('resource.json'))
@@ -49,6 +50,7 @@ gulp.task('browser-sync', () => {
 })
 
 gulp.task('bs-reload', done => {
+  cache.clearAll()
   browserSync.reload()
   done()
 })

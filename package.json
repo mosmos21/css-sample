@@ -17,6 +17,7 @@
     "browser-sync": "^2.26.3",
     "ejs": "^2.6.1",
     "gulp": "^4.0.0",
+    "gulp-cache": "^1.1.1",
     "gulp-clean-css": "^4.0.0",
     "gulp-ejs": "^3.3.0",
     "gulp-plumber": "^1.2.1",
