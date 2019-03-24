@@ -5,6 +5,7 @@ const plumber = require('gulp-plumber')
 const rename = require('gulp-rename')
 const sass = require('gulp-sass')
 const sassGlob = require('gulp-sass-glob')
+const browserSync = require('browser-sync')
 
 gulp.task('ejs', () => {
   const json = JSON.parse(fs.readFileSync('resource.json'))
@@ -29,23 +30,40 @@ gulp.task('copy', () => {
     .pipe(gulp.dest('_build'))
 })
 
+gulp.task('browser-sync', () => {
+  browserSync({
+    server: {
+      baseDir: '_build',
+      index: 'index.html'
+    }
+  })
+})
+
+gulp.task('browser-sync-reload', () => {
+  broserSync.reload()
+})
+
 gulp.task('default', gulp.parallel('ejs', 'sass', 'copy'))
 
-gulp.task('watch', () => {
-  gulp.watch(
-    ['views/*.ejs', 'views/**/*.ejs', 'resource.json'],
-    gulp.task('ejs')
-  )
-  gulp.watch(
-    ['assets/stylesheets/*', 'assets/stylesheets/**/*'],
-    gulp.task('sass')
-  )
-  gulp.watch(
-    [
-      'assets/images/*, assets/images/**/*',
-      'assets/scripts/*',
-      'assets/scripts/**/*'
-    ],
-    gulp.task('copy')
-  )
-})
+gulp.task(
+  'watch',
+  gulp.series('browser-sync', () => {
+    gulp.watch(
+      ['views/*.ejs', 'views/**/*.ejs', 'resource.json'],
+      gulp.task('ejs')
+    )
+    gulp.watch(
+      ['assets/stylesheets/*', 'assets/stylesheets/**/*'],
+      gulp.task('sass')
+    )
+    gulp.watch(
+      [
+        'assets/images/*, assets/images/**/*',
+        'assets/scripts/*',
+        'assets/scripts/**/*'
+      ],
+      gulp.task('copy')
+    )
+    gulp.watch(['_build/*', '._build/**/*'], gulp.task('browser-syanc-reload'))
+  })
+)
