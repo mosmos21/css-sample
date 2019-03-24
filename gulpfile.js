@@ -18,7 +18,7 @@ gulp.task('ejs', () => {
 
 gulp.task('sass', () => {
   return gulp
-    .src('assets/stylesheets/main.sass')
+    .src('assets/stylesheets/style.sass')
     .pipe(sassGlob())
     .pipe(sass())
     .pipe(gulp.dest('_build'))
@@ -31,7 +31,7 @@ gulp.task('copy', () => {
 })
 
 gulp.task('browser-sync', () => {
-  browserSync({
+  return browserSync({
     server: {
       baseDir: '_build',
       index: 'index.html'
@@ -39,15 +39,16 @@ gulp.task('browser-sync', () => {
   })
 })
 
-gulp.task('browser-sync-reload', () => {
-  broserSync.reload()
+gulp.task('bs-reload', () => {
+  browserSync.reload()
+  done()
 })
 
 gulp.task('default', gulp.parallel('ejs', 'sass', 'copy'))
 
 gulp.task(
   'watch',
-  gulp.series('browser-sync', () => {
+  gulp.parallel('browser-sync', () => {
     gulp.watch(
       ['views/*.ejs', 'views/**/*.ejs', 'resource.json'],
       gulp.task('ejs')
@@ -64,6 +65,6 @@ gulp.task(
       ],
       gulp.task('copy')
     )
-    gulp.watch(['_build/*', '._build/**/*'], gulp.task('browser-syanc-reload'))
+    gulp.watch(['_build/*', '_build/**/*'], gulp.task('bs-reload'))
   })
 )
