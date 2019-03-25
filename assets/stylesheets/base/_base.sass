@@ -4,3 +4,20 @@ html
 *, *::before, *::after
   box-sizing: border-box
   font-family: 'Open Sans', 'Hiragino Kaku Gothic ProN', Meiyo, sasn-serif
+
+
+$pc: 1024px
+$tab: 680px
+$sp: 480px
+
+@mixin media-pc
+  @media (max-width: $pc)
+    @content
+
+@mixin media-tab
+  @media (max-width: $tab)
+    @content
+
+@mixin media-sp
+  @media (max-width: $sp)
+    @content

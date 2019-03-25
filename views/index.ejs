@@ -4,8 +4,12 @@
 
 <body>
     <%- include('layouts/header') -%>
-    <div class="container">
-        <h1>test</h1>
+    <div class="l-index">
+        <% components.forEach( c =>{%>
+            <object>
+                <%- include('components/card', c)%>
+            </object>
+            <%})%>
     </div>
     <%- include('layouts/footer') -%>
 </body>

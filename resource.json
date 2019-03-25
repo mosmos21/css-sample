@@ -1,3 +1,20 @@
 {
-  "commonTitle": "CSS Sample"
+  "commonTitle": "CSS Sample",
+  "components": [
+    {
+      "className": "translucent-border"
+    },
+    {
+      "className": "border-double"
+    },
+    {
+      "className": "bg-position"
+    },
+    {
+      "className": "inner-radius"
+    },
+    {
+      "className": "stripe"
+    }
+  ]
 }
