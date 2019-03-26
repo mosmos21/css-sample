@@ -9,6 +9,16 @@ const sassGlob = require('gulp-sass-glob')
 const cleanCss = require('gulp-clean-css')
 const browserSync = require('browser-sync')
 const cache = require('gulp-cache')
+const createResource = require('./lib/create_resource')
+
+gulp.task('create-resource', done => {
+  createResource({
+    baseFile: 'assets/json/base.json',
+    componentDir: 'assets/stylesheets/components/',
+    exportFile: 'resource.json'
+  })
+  done()
+})
 
 gulp.task('ejs', () => {
   const json = JSON.parse(fs.readFileSync('resource.json'))
