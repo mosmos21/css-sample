@@ -20,20 +20,23 @@ gulp.task('create-resource', done => {
   done()
 })
 
-gulp.task('ejs', () => {
-  const json = JSON.parse(fs.readFileSync('resource.json'))
-  return gulp
-    .src('views/*.ejs')
-    .pipe(ejs(json))
-    .pipe(
-      htmlmin({
-        collapseWhitespace: true
-      })
-    )
-    .pipe(rename({ extname: '.html' }))
-    .pipe(gulp.dest('_build'))
-    .pipe(browserSync.stream())
-})
+gulp.task(
+  'ejs',
+  gulp.series('create-resource', () => {
+    const json = JSON.parse(fs.readFileSync('resource.json'))
+    return gulp
+      .src('views/*.ejs')
+      .pipe(ejs(json))
+      .pipe(
+        htmlmin({
+          collapseWhitespace: true
+        })
+      )
+      .pipe(rename({ extname: '.html' }))
+      .pipe(gulp.dest('_build'))
+      .pipe(browserSync.stream())
+  })
+)
 
 gulp.task('sass', () => {
   return gulp
@@ -69,7 +72,10 @@ gulp.task(
   gulp.series(
     'default',
     gulp.parallel('browser-sync', () => {
-      gulp.watch(['views/**/*.ejs', 'resource.json'], gulp.task('ejs'))
+      gulp.watch(
+        ['views/**/*.ejs', 'assets/stylesheets/components/**/*'],
+        gulp.task('ejs')
+      )
       gulp.watch(['assets/stylesheets/**/*'], gulp.task('sass'))
       gulp.watch(
         ['assets/images/**/*', 'assets/scripts/**/*'],
