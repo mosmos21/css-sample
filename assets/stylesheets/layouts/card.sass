@@ -6,7 +6,6 @@
   height: 200px
   margin: 1.6rem
   width: 300px
-  
   @include media-sp
     width: 98%
     margin: 2%
@@ -18,9 +17,18 @@
     text-align: center
 
   &-body
-    
     &-content
-      
-      border: 1px solid $co-gray40
+      align-self: center
       height: 120px
+      margin: 15px auto
       width: 200px
+      overflow: hidden
+
+      &-back-image
+        background: url('images/back.jpg')
+        background-size: contain
+
+      &-inner
+        margin: 20px auto
+        height: 80px
+        width: 120px

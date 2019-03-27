@@ -3,8 +3,7 @@
         <%= className %>
     </div>
     <div class="l-card-body">
-        <div class="l-card-body-content">
-
-        </div>
+        <% var name = '../components/' + className.replace(/[0-9]+$/, '') %>
+        <%- include(name) %>
     </div>
 </a>
