@@ -1,0 +1,9 @@
+<a class="l-card">
+    <div class="l-card-head">
+        <%= className %>
+    </div>
+    <div class="l-card-body">
+        <% var name = '../components/' + className.replace(/[0-9]+$/, '') %>
+        <%- include(name) %>
+    </div>
+</a>

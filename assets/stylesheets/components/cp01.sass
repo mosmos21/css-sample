@@ -1,0 +1,36 @@
+.translucent-border
+  border: 10px solid hsla(0, 0%, 100%, .5)
+  background: transparent
+  background-clip: padding-box
+  
+.border-double
+  background: $co-gray20
+  border: 2px solid black
+  border-radius: 1em
+  outline: 2px dashed white
+  outline-offset: -20px
+
+.bg-position1
+  padding: 10px
+  background: url("../images/moon.svg") no-repeat #58a
+  background-position: right 10px bottom 10px
+
+.bg-position2
+  padding: 10px
+  background: url("../images/moon.svg") no-repeat #58a bottom right
+  background-origin: content-box
+
+.inner-radius1
+  background: #655
+  padding: .8em
+  > div
+    background: tan
+    border-radius: .8em
+    height: 100%
+    padding: 1em
+
+.inner-radius2
+  background: tan
+  border-radius: .8em
+  box-shadow: 0 0 0 .5em #655
+  outline: .6em solid #655

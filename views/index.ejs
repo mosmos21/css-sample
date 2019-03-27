@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<%- include('layouts/head') -%>
+
+<body>
+    <%- include('layouts/header') -%>
+    <div class="l-index">
+        <% components.forEach( c =>{%>
+            <object>
+                <%- include('layouts/card', c)%>
+            </object>
+        <%})%>
+    </div>
+    <%- include('layouts/footer') -%>
+</body>
+
+</html>
