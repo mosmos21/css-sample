@@ -1,9 +1,29 @@
-<a class="l-card">
+<% 
+var S="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var id = Array.from(Array(8)).map(()=>S[Math.floor(Math.random()*S.length)]).join('')
+var name = '../components/' + className.replace(/[0-9]+$/, '')
+%>
+<a class="l-card" data-toggle="modal" data-target="#<%= id %>">
     <div class="l-card-head">
         <%= className %>
     </div>
     <div class="l-card-body">
-        <% var name = '../components/' + className.replace(/[0-9]+$/, '') %>
         <%- include(name) %>
     </div>
 </a>
+<div id="<%= id %>" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><%= className %></h2>
+            </div>
+            <div class="modal-body">
+                <%- include(name) %>
+                <div class="l-card-css-text">
+                    <% var sass = ["." + className].concat(styles).join("\r\n") %>
+                    <pre><%= sass %></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
