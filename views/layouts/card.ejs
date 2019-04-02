@@ -3,11 +3,11 @@ var S="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var id = Array.from(Array(8)).map(()=>S[Math.floor(Math.random()*S.length)]).join('')
 var name = '../components/' + className.replace(/[0-9]+$/, '')
 %>
-<a class="l-card" data-toggle="modal" data-target="#<%= id %>">
-    <div class="l-card-head">
+<a class="card-Frame" data-toggle="modal" data-target="#<%= id %>">
+    <div class="card-Head">
         <%= className %>
     </div>
-    <div class="l-card-body">
+    <div class="card-Body">
         <%- include(name) %>
     </div>
 </a>
@@ -19,7 +19,7 @@ var name = '../components/' + className.replace(/[0-9]+$/, '')
             </div>
             <div class="modal-body">
                 <%- include(name) %>
-                <div class="l-card-css-text">
+                <div class="card-CssText">
                     <% var sass = ["." + className].concat(styles).join("\r\n") %>
                     <pre><%= sass %></pre>
                 </div>

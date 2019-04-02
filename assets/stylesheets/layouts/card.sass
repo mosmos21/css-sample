@@ -1,45 +1,54 @@
-.l-card
-  border: 1px solid $co-gray20
-  border-radius: .4rem
-  color: $co-gray80
-  display: block
-  height: 200px
-  margin: 1.6rem
-  cursor: pointer
-  width: 300px
-  &:hover
-    border-color: $co-gray40
-    box-shadow: 0 0 1px 1px $co-gray20
-  @include media-sp
-    width: 98%
-    margin: 2%
+.card
+  &-Frame
+    border: 1px solid $co-gray20
+    border-radius: .4rem
+    color: $co-gray80
+    display: block
+    height: 200px
+    margin: 1.6rem
+    cursor: pointer
+    width: 300px
+    &:hover
+      border-color: $co-gray40
+      box-shadow: 0 0 1px 1px $co-gray20
+    @include media-sp
+      width: 98%
+      margin: 2%
 
-  &-head
+  &-Head
     border-bottom: 1px solid $co-gray20
     font-size: $font-m
     padding: .8rem
     text-align: center
 
-  &-body
-    &-content
+  &-Body
+    &_Content
       align-self: center
       height: 120px
       margin: 15px auto
       width: 200px
       overflow: hidden
 
-      &-back-image
-        background: url('images/back.jpg')
-        background-size: contain
+    &_ContentImage
+      background: url('images/back.jpg')
+      background-size: contain
 
-      &-inner
-        margin: 20px auto
-        height: 80px
-        width: 120px
+    &_InnerContent
+      margin: 20px auto
+      height: 80px
+      width: 120px
 
-  &-css-text
+  &-CssText
     border: 1px solid $co-gray40
     font-size: $font-s
     margin: 2rem auto
     padding: 1rem
     width: 90%
+
+  &-Empty
+    border: none
+    height: 0
+    margin-top: 0
+    margin-bottom: 0
+    padding-top: 0
+    padding-bottom: 0

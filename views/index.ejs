@@ -10,6 +10,9 @@
                 <%- include('layouts/card', c)%>
             </object>
         <%})%>
+        <% [...Array(components.length)].forEach(() => {%>
+            <%- include('layouts/empty_card')%>
+        <%})%>
     </div>
     <%- include('layouts/footer') -%>
 </body>
