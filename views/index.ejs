@@ -6,9 +6,7 @@
     <%- include('layouts/header') -%>
     <div class="index-Body">
         <% components.forEach( c =>{%>
-            <object>
-                <%- include('layouts/card', c)%>
-            </object>
+            <%- include('layouts/card', c)%>
         <%})%>
         <% [...Array(components.length)].forEach(() => {%>
             <%- include('layouts/empty_card')%>
