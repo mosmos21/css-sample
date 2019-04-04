@@ -7,7 +7,7 @@ html
 
 
 $pc: 1024px
-$tab: 680px
+$tab: 768px
 $sp: 480px
 
 @mixin media-pc
@@ -21,6 +21,15 @@ $sp: 480px
 @mixin media-sp
   @media (max-width: $sp)
     @content
+
+.sp_none
+  @include media-sp
+    display: none
+
+.sp_only
+  display: none
+  @include media-sp
+    display: block
 
 $space-xl: 3.6rem
 $space-ll: 2.4rem

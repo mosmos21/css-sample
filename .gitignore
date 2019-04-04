@@ -1,3 +1,5 @@
 node_modules/
 _build/
 resource\.json
+
+\.idea/
