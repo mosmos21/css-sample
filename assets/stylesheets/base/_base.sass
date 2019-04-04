@@ -22,6 +22,15 @@ $sp: 480px
   @media (max-width: $sp)
     @content
 
+.sp_none
+  @include media-sp
+    display: none
+
+.sp_onpy
+  display: none
+  @include media-sp
+    display: block
+
 $space-xl: 3.6rem
 $space-ll: 2.4rem
 $space-l: 2rem
